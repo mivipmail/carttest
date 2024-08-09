@@ -18,7 +18,7 @@
                         </div>
                         <ul>
                             @foreach($order['items'] as $item)
-                                <li>{{$item['product']['title']}}</li>
+                                <li>{{ $item['product']['title'] }} - {{ $item['quantity'] }} шт.</li>
                             @endforeach
                         </ul>
                         <div class="ms-auto fw-bold">

@@ -22,27 +22,6 @@ class OrderController extends Controller
     }
 
 
-    public function add(string $id)
-    {
-        $id = (int)$id;
-        $quantity = (int)(request()->get('quantity') ?? 1);
-
-        $session = request()->session();
-        $cart = ($session->has('cart')) ? $session->get('cart') : [];
-
-        if (!isset($cart[$id])) 
-            $cart[$id] = 0;
-        $cart[$id] += $quantity;
-
-        if ($cart[$id] <= 0)
-            unset($cart[$id]);
-
-        $session->put('cart', $cart);
-
-        return redirect()->route('index');
-    }
-
-
     public function store(Request $request)
     {
         $session = $request->session();

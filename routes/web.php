@@ -18,7 +18,7 @@ Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name(
 
 Route::group(['prefix' => 'cart'], function() {
     Route::get('/', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index')->middleware('no.cache');
-    Route::post('/add/{id}', [App\Http\Controllers\OrderController::class, 'add'])->name('cart.add');
+    Route::post('/add/{id}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
 });
 
 Route::group(['prefix' => 'orders'], function() {
